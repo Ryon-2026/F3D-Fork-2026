@@ -1150,16 +1150,13 @@ interactor& interactor_impl::initCommands()
       {
         return;
       }
-      check_args(args, 3, "roll_camera");
-      this->Internals->Window.getCamera().position(
-          options::parse<float>(args[0])
-          options::parse<float>(args[1])
-          options::parse<float>(args[2])
-          );
+      check_args(args, 3, "set_camera");
+      this->Internals->Window.getCamera().position(options::parse<float>(args[0]),options::parse<float>(args[1]),options::parse<float>(args[2]));
       this->Internals->Style->SetTemporaryUp(
         this->Internals->Window.getCamera().getViewUp().data());
     },
-    command_documentation_t{ "set_camera x y z", "Sets the position of the camera to the x y z position" });
+    command_documentation_t{ 
+    "set_camera x y z", "Sets the position of the camera to the x y z position" });
 
   this->addCommand("jump_to_frame",
     [&](const std::vector<std::string>& args)
