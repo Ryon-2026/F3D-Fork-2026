@@ -36,6 +36,9 @@ eg: `cycle_coloring array`.
 `roll_camera value`: A specific command to roll the camera on its side, takes an angle in degrees as an argument.
 eg: `roll_camera 120`.
 
+`set camera_position x y z`: A specific command to set the position of the camera to the position of x y z.
+eg: `set_camera_position 1.0 1.0 1.0`.
+
 `elevation_camera value`: A specific command to tilt the camera up or down, takes an angle in degrees as an argument.
 eg: `elevation_camera 120`.
 
