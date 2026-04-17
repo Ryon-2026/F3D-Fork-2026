@@ -1141,7 +1141,7 @@ interactor& interactor_impl::initCommands()
         this->Internals->Window.getCamera().getViewUp().data());
     },
     command_documentation_t{ "roll_camera value", "roll the camera on its side" });
-
+/* TODO: REMOVE THIS FUNCTION */
   this->addCommand(
     "set_camera",
     [&](const std::vector<std::string>& args)
@@ -1255,6 +1255,8 @@ interactor& interactor_impl::initCommands()
       {
         return;
       }
+      if (args.size() == 1)
+      {
       check_args(args, 1, "set_camera");
       std::string_view type = args[0];
       if (type == "front")
@@ -1297,6 +1299,13 @@ interactor& interactor_impl::initCommands()
         throw interactor::invalid_args_exception(
           std::string("Command: set_camera arg:\"") + std::string(type) + "\" is not recognized.");
       }
+
+      else if (args.size() == 3)
+      {
+      check_args(args, 3, "set_camera");
+      this->Internals->Window.getCamera().position(options::parse<float>(args[0]),options::parse<float>(args[1]),options::parse<float>(args[2]));
+      this->Internals->Style->SetTemporaryUp(
+        this->Internals->Window.getCamera().getViewUp().data());
     },
     command_documentation_t{ "set_camera front/top/right/back/bottom/left/isometric",
       "position the camera in the specified location" },
