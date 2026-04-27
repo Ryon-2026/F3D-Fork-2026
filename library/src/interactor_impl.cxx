@@ -1299,18 +1299,23 @@ interactor& interactor_impl::initCommands()
         throw interactor::invalid_args_exception(
           std::string("Command: set_camera arg:\"") + std::string(type) + "\" is not recognized.");
       }
-
+    }
       else if (args.size() == 3)
       {
       check_args(args, 3, "set_camera");
       this->Internals->Window.getCamera().position(options::parse<float>(args[0]),options::parse<float>(args[1]),options::parse<float>(args[2]));
       this->Internals->Style->SetTemporaryUp(
-        this->Internals->Window.getCamera().getViewUp().data());
+      this->Internals->Window.getCamera().getViewUp().data());
+      }
+      else 
+      {
+        throw interactor::invalid_args_exception(
+            "Command: set_camera expects either 1 argument or 3 arguments");
+      }
     },
-    command_documentation_t{ "set_camera front/top/right/back/bottom/left/isometric",
-      "position the camera in the specified location" },
+    command_documentation_t{ "set_camera front/top/right/back/bottom/left/isometric", "position the camera in the specified location" },
     std::bind(complNames, std::placeholders::_1,
-      std::vector<std::string>{ "front", "top", "right", "back", "bottom", "left", "isometric" }));
+    std::vector<std::string>{ "front", "top", "right", "back", "bottom", "left", "isometric" }));
 
   this->addCommand(
     "toggle_volume_rendering",
