@@ -79,7 +79,7 @@ int TestSDKInteractorCommand([[maybe_unused]] int argc, [[maybe_unused]] char* a
   f3d::point3_t posBefore = cam.getPosition();
   inter.triggerCommand("set_camera front");
   inter.triggerCommand("roll_camera 90");
-  inter.triggerCommand("set_camera_position 1.0 1.0 1.0");
+  inter.triggerCommand("set_camera 1.0 1.0 1.0");
   inter.triggerCommand("elevation_camera 90");
   inter.triggerCommand("azimuth_camera 90");
   test("camera commands no-op in 2d mode", cam.getPosition() == posBefore);
