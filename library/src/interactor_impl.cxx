@@ -1241,7 +1241,6 @@ interactor& interactor_impl::initCommands()
       }
       if (args.size() == 1)
       {
-        check_args(args, 1, "set_camera");
         std::string_view type = args[0];
         if (type == "front")
         {
@@ -1286,8 +1285,7 @@ interactor& interactor_impl::initCommands()
       }
       else if (args.size() == 3)
       {
-        check_args(args, 3, "set_camera");
-        this->Internals->Window.getCamera().position(options::parse<float>(args[0]),
+        this->Internals->Window.getCamera().setPosition(options::parse<float>(args[0]),
           options::parse<float>(args[1]), options::parse<float>(args[2]));
         this->Internals->Style->SetTemporaryUp(
           this->Internals->Window.getCamera().getViewUp().data());
