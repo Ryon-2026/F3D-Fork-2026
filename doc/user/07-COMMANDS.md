@@ -36,9 +36,6 @@ eg: `cycle_coloring array`.
 `roll_camera value`: A specific command to roll the camera on its side, takes an angle in degrees as an argument.
 eg: `roll_camera 120`.
 
-`set camera_position x y z`: A specific command to set the position of the camera to the position of x y z.
-eg: `set_camera_position 1.0 1.0 1.0`.
-
 `elevation_camera value`: A specific command to tilt the camera up or down, takes an angle in degrees as an argument.
 eg: `elevation_camera 120`.
 
@@ -65,6 +62,9 @@ eg: `azimuth_camera 120`.
 
 `set_camera front/top/right/back/bottom/left/isometric`: A specific command to position the camera in the specified location relative to the model.
 Supports `front`, `top`, `right`, `back`, `bottom`, `left`, `isometric` arguments. eg: `set_camera top`.
+
+`set_camera x y z`: A specific command to position the camera at the specified x y z location.
+eg: `set_camera 1.0 1.0 1.0`.
 
 `toggle_volume_rendering`: A specific command to toggle `model.volume.enable` and print coloring information. No argument.
 
